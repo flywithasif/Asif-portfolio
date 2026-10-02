@@ -50,6 +50,10 @@ const conversationTypes = [
   "Developer Opportunities",
 ];
 
+const CONTACT_API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api/contact";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -60,6 +64,8 @@ export default function Contact() {
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -70,22 +76,72 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setShowSuccess(true);
+    if (isSubmitting) {
+      return;
+    }
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+    setErrorMessage("");
+    setShowSuccess(false);
 
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 4500);
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          mobile: formData.phone.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+        }),
+      });
+
+      let data = {};
+
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
+      if (!response.ok || !data.success) {
+        const validationError =
+          data.errors?.[0]?.message ||
+          data.message ||
+          "Unable to send your message. Please try again.";
+
+        throw new Error(validationError);
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+      setShowSuccess(true);
+
+      window.setTimeout(() => {
+        setShowSuccess(false);
+      }, 4500);
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      setErrorMessage(
+        error.message ||
+          "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -220,7 +276,9 @@ export default function Contact() {
                     required
                     inputMode="numeric"
                     autoComplete="tel"
-                    placeholder="+91 98765 43210"
+                    maxLength={10}
+                    pattern="[6-9][0-9]{9}"
+                    placeholder="98765 43210"
                     className="mt-3 w-full border-b border-white/[0.1] bg-transparent px-0 py-3 text-sm text-[#dcd7cf] outline-none placeholder:text-[#403c37] transition focus:border-[#c9a15a]/50"
                   />
                 </div>
@@ -267,12 +325,19 @@ export default function Contact() {
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="border border-red-500/20 bg-red-500/[0.04] px-4 py-3 text-[11px] leading-5 text-red-400">
+                    {errorMessage}
+                  </div>
+                )}
+
                 {/* SEND BUTTON */}
                 <button
                   type="submit"
-                  className="group inline-flex w-full items-center justify-center gap-3 border border-[#c9a15a]/40 px-6 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
+                  disabled={isSubmitting}
+                  className="group inline-flex w-full items-center justify-center gap-3 border border-[#c9a15a]/40 px-6 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
 
                   <Send
                     size={14}

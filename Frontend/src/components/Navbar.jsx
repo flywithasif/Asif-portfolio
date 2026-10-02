@@ -35,22 +35,48 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.07] bg-[#070707]/85 backdrop-blur-xl">
       <div className="mx-auto flex h-[78px] max-w-[1240px] items-center justify-between px-5 lg:px-8">
-        {/* Logo */}
+        {/* Brand */}
         <Link
           to="/"
           onClick={() => setMobileOpen(false)}
-          className="group flex items-center gap-3"
+          className="group relative inline-flex items-center"
+          aria-label="Asif home"
         >
-          <span className="flex h-9 w-9 items-center justify-center border border-[#c9a15a]/60 font-serif text-lg text-[#d8b56c] transition duration-300 group-hover:bg-[#c9a15a] group-hover:text-black">
-            A
-          </span>
+          <span
+            className="
+              relative
+              font-sans
+              text-[15px]
+              font-bold
+              uppercase
+              tracking-[0.28em]
+              text-[#f4f1eb]
+              transition-all
+              duration-500
+              group-hover:tracking-[0.34em]
+            "
+          >
+            ASIF
+            <span className="text-[#c9a15a]">.</span>
 
-          <span className="font-sans text-[14px] font-bold tracking-[0.25em]">
-            ASIF<span className="text-[#c9a15a]">.</span>
+            {/* Animated underline */}
+            <span
+              className="
+                absolute
+                -bottom-2
+                left-0
+                h-px
+                w-0
+                bg-[#c9a15a]
+                transition-all
+                duration-500
+                group-hover:w-full
+              "
+            />
           </span>
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-7 lg:flex">
           {navigation.map((item) => (
             <NavLink
@@ -86,18 +112,19 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile button */}
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setMobileOpen((value) => !value)}
-          className="border border-white/10 p-2 text-white lg:hidden"
+          className="border border-white/10 p-2 text-white transition-colors duration-300 hover:border-[#c9a15a]/50 hover:text-[#c9a15a] lg:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
       </div>
 
-      {/* Mobile navigation */}
+      {/* Mobile Navigation */}
       <div
         className={[
           "border-t border-white/[0.07] bg-[#070707] px-5 transition-all duration-300 lg:hidden",
@@ -114,8 +141,10 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className={({ isActive }) =>
                 [
-                  "border-b border-white/[0.06] py-4 font-mono text-[11px] uppercase tracking-[0.15em]",
-                  isActive ? "text-[#d8b56c]" : "text-[#858079]",
+                  "border-b border-white/[0.06] py-4 font-mono text-[11px] uppercase tracking-[0.15em] transition-colors duration-300",
+                  isActive
+                    ? "text-[#d8b56c]"
+                    : "text-[#858079] hover:text-white",
                 ].join(" ")
               }
             >
@@ -126,7 +155,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
-            className="mt-5 inline-flex h-12 items-center justify-center gap-2 bg-[#c9a15a] font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-black"
+            className="mt-5 inline-flex h-12 items-center justify-center gap-2 bg-[#c9a15a] font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-black transition duration-300 hover:bg-[#d8b56c]"
           >
             Let's Talk
             <MoveUpRight size={15} />
