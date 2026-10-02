@@ -27,6 +27,10 @@ const navigation = [
     name: "GitHub",
     path: "/github",
   },
+  {
+    name: "Resume",
+    path: "/resume",
+  },
 ];
 
 export default function Navbar() {

@@ -8,232 +8,101 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-import PageHeader from "../components/PageHeader";
-
-const profileDetails = [
-  {
-    label: "ROLE",
-    value: "Full-Stack Developer",
-  },
-  {
-    label: "FOCUS",
-    value: "Backend Engineering",
-  },
-  {
-    label: "LOCATION",
-    value: "Gurgaon, India",
-  },
-  {
-    label: "EDUCATION",
-    value: "BCA · 2024 — 2027",
-  },
-];
-
-const experience = [
-  {
-    year: "2024 — NOW",
-    role: "Center Manager",
-    company: "Professional Experience",
-    description:
-      "Managing day-to-day operations, customer interactions, sales workflows, team coordination and business responsibilities in a professional environment.",
-  },
-  {
-    year: "2025 — NOW",
-    role: "Full-Stack Developer",
-    company: "Independent Development",
-    description:
-      "Building full-stack applications with React, Node.js, Express and MongoDB while developing stronger skills in APIs, authentication, databases and production workflows.",
-  },
-];
-
-const technicalSkills = [
-  {
-    title: "Frontend",
-    items: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "React Router",
-      "Framer Motion",
-    ],
-  },
-  {
-    title: "Backend",
-    items: [
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-      "MVC",
-      "Middleware",
-      "CRUD",
-      "Validation",
-      "Error Handling",
-    ],
-  },
-  {
-    title: "Database",
-    items: [
-      "MongoDB",
-      "MongoDB Atlas",
-      "Mongoose",
-      "Schemas",
-      "Models",
-      "Queries",
-      "Filtering",
-      "Sorting",
-    ],
-  },
-  {
-    title: "Security",
-    items: [
-      "JWT",
-      "bcrypt",
-      "Authentication",
-      "Authorization",
-      "Protected Routes",
-      "OTP",
-      "Rate Limiting",
-      "Environment Variables",
-    ],
-  },
-  {
-    title: "Tools",
-    items: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Postman",
-      "npm",
-      "Vercel",
-      "Netlify",
-      "DNS",
-    ],
-  },
-  {
-    title: "Additional",
-    items: [
-      "Multer",
-      "Cloudinary",
-      "API Integration",
-      "Responsive Design",
-      "Deployment",
-      "Debugging",
-      "Testing",
-      "JSON",
-    ],
-  },
-];
-
-const selectedProjects = [
-  {
-    number: "01",
-    title: "WebQenzo",
-    type: "FULL-STACK BUSINESS PLATFORM",
-    description:
-      "A full-stack digital agency platform with public-facing pages, lead management, quotations, contacts, authentication and protected administration.",
-  },
-  {
-    number: "02",
-    title: "Resume Builder",
-    type: "SAAS · FULL-STACK",
-    description:
-      "A resume creation product combining a React builder interface with reusable templates, persistent data and backend authentication.",
-  },
-  {
-    number: "03",
-    title: "Job Portal",
-    type: "JOB PLATFORM · FULL-STACK",
-    description:
-      "A full-stack job platform focused on candidates, opportunities, application workflows, authentication and structured data.",
-  },
-  {
-    number: "04",
-    title: "Sales CRM",
-    type: "CRM · IN DEVELOPMENT",
-    description:
-      "A workflow-driven CRM currently being developed around leads, assignment, follow-ups, statuses and sales operations.",
-  },
-];
 
 export default function Resume() {
   return (
-    <main className="page-shell overflow-hidden">
-      <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
+    <main
+      id="top"
+      className="min-h-screen bg-[#070707] text-[#f4f1eb]"
+    >
+      <div className="mx-auto max-w-[1240px] px-5 pb-24 pt-[120px] lg:px-8">
         {/* =====================================================
-            HEADER
+            HERO
         ====================================================== */}
-        <PageHeader
-          number="07"
-          label="RESUME"
-          title="A concise view"
-          highlight="of the work."
-          description="A structured overview of my professional experience, education, technical skills and selected projects."
-        />
+        <section className="border-b border-white/[0.08] pb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <div>
+              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#c9a15a]">
+                Resume / Profile
+              </p>
 
-        {/* =====================================================
-            RESUME HERO
-        ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="relative overflow-hidden border border-[#c9a15a]/15 bg-[#0a0908] p-8 md:p-12 lg:p-16">
-            <div className="pointer-events-none absolute right-[-100px] top-[-120px] h-[380px] w-[380px] rounded-full border border-[#c9a15a]/10" />
+              <h1 className="mt-6 max-w-[850px] font-sans text-5xl font-semibold leading-[0.95] tracking-[-0.045em] text-[#f4f1eb] sm:text-6xl lg:text-8xl">
+                Asif
+                <span className="text-[#c9a15a]">.</span>
+              </h1>
 
-            <div className="relative grid gap-12 lg:grid-cols-[1fr_0.6fr] lg:items-end">
-              <div>
-                <span className="font-mono text-[9px] tracking-[0.2em] text-[#c9a15a]">
-                  ASIF · FULL-STACK DEVELOPER
-                </span>
+              <p className="mt-7 max-w-[720px] text-base leading-7 text-[#858079] sm:text-lg">
+                Full-stack developer focused on building modern digital
+                products, backend systems, APIs, authentication flows,
+                databases, and production-ready web applications.
+              </p>
 
-                <h2 className="mt-7 max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.07em] text-[#e8e3db] md:text-8xl">
-                  Building
-                  <br />
-                  <span className="font-serif italic text-[#c9a15a]">
-                    useful systems.
-                  </span>
-                </h2>
+              <a
+                href="/Asif-Resume.pdf"
+                download="Asif-Resume.pdf"
+                className="group mt-7 inline-flex items-center gap-3 border border-[#c9a15a]/40 px-6 py-4 font-mono text-[8px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
+              >
+                Download Resume
 
-                <p className="mt-8 max-w-2xl text-[13px] leading-7 text-[#77726b]">
-                  Full-stack developer focused on building practical digital
-                  products with React, Node.js, Express and MongoDB — with a
-                  growing focus on backend engineering, authentication, APIs
-                  and production-ready application structure.
-                </p>
-              </div>
+                <Download
+                  size={14}
+                  className="transition-transform group-hover:translate-y-0.5"
+                />
+              </a>
+            </div>
 
-              <div className="lg:text-right">
-                <div className="flex items-center gap-3 lg:justify-end">
-                  <MapPin size={15} className="text-[#c9a15a]" />
+            <div className="lg:border-l lg:border-white/[0.08] lg:pl-10">
+              <div className="space-y-6">
+                <div>
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#5f5b55]">
+                    Location
+                  </p>
 
-                  <span className="font-mono text-[8px] tracking-[0.14em] text-[#5c5751]">
-                    GURGAON · INDIA
-                  </span>
+                  <div className="mt-2 flex items-center gap-2 text-sm text-[#b0aaa1]">
+                    <MapPin size={14} className="text-[#c9a15a]" />
+                    India
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#5f5b55]">
+                    Role
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#b0aaa1]">
+                    Full-Stack Developer
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#5f5b55]">
+                    Focus
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#b0aaa1]">
+                    React · Node.js · MongoDB
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#5f5b55]">
+                    Availability
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#b0aaa1]">
+                    Open to opportunities
+                  </p>
                 </div>
 
                 <a
-                  href="mailto:your@email.com"
-                  className="mt-5 inline-flex items-center gap-2 font-mono text-[8px] tracking-[0.1em] text-[#77726b] transition hover:text-[#c9a15a]"
+                  href="mailto:flywithasif@gmail.com"
+                  className="inline-flex items-center gap-2 font-mono text-[15px] tracking-[0.1em] text-[#77726b] transition hover:text-[#c9a15a]"
                 >
                   <Mail size={14} />
 
-                  your@email.com
+                  flywithasif@gmail.com
                 </a>
-
-                <button
-                  type="button"
-                  className="group mt-7 inline-flex items-center gap-3 border border-[#c9a15a]/40 px-6 py-4 font-mono text-[8px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
-                >
-                  Download Resume
-
-                  <Download
-                    size={14}
-                    className="transition-transform group-hover:translate-y-0.5"
-                  />
-                </button>
               </div>
             </div>
           </div>
@@ -242,138 +111,58 @@ export default function Resume() {
         {/* =====================================================
             PROFILE DETAILS
         ====================================================== */}
-        <section className="border-t border-white/[0.08] py-12">
-          <div className="grid grid-cols-2 gap-px bg-white/[0.08] md:grid-cols-4">
-            {profileDetails.map((item) => (
-              <div
-                key={item.label}
-                className="bg-[#080807] px-5 py-7 md:px-7"
-              >
-                <span className="font-mono text-[7px] tracking-[0.15em] text-[#4e4a45]">
-                  {item.label}
-                </span>
+        <section className="border-b border-white/[0.08] py-16">
+          <div className="grid gap-10 md:grid-cols-3">
+            <div>
+              <div className="flex items-center gap-3">
+                <Code2 size={17} className="text-[#c9a15a]" />
 
-                <p className="mt-4 text-[11px] leading-5 text-[#88827a]">
-                  {item.value}
+                <p className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-[#f4f1eb]">
+                  Profile       
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
 
-        {/* =====================================================
-            EXPERIENCE
-        ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="grid gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:gap-24">
+              <p className="mt-5 text-sm leading-7 text-[#77726b]">
+                I build complete web applications with a strong focus on
+                clean interfaces, reliable backend systems, structured APIs,
+                authentication, databases, and real-world usability.
+              </p>
+            </div>
+
             <div>
-              <span className="font-mono text-[9px] tracking-[0.18em] text-[#c9a15a]">
-                01 — EXPERIENCE
-              </span>
+              <div className="flex items-center gap-3">
+                <GraduationCap size={17} className="text-[#c9a15a]" />
 
-              <h2 className="mt-5 text-4xl font-semibold leading-[1] tracking-[-0.05em] text-[#e8e3db] md:text-5xl">
-                Work that
-                <br />
-                <span className="font-serif italic text-[#c9a15a]">
-                  shaped me.
-                </span>
-              </h2>
-            </div>
-
-            <div className="border-t border-white/[0.08]">
-              {experience.map((item, index) => (
-                <motion.article
-                  key={item.role}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                  }}
-                  className="grid gap-6 border-b border-white/[0.08] py-8 md:grid-cols-[150px_1fr]"
-                >
-                  <div>
-                    <span className="font-mono text-[8px] tracking-[0.1em] text-[#c9a15a]">
-                      {item.year}
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="flex items-start justify-between gap-5">
-                      <div>
-                        <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[#dcd7cf]">
-                          {item.role}
-                        </h3>
-
-                        <p className="mt-2 font-mono text-[8px] tracking-[0.1em] text-[#514d47]">
-                          {item.company}
-                        </p>
-                      </div>
-
-                      <BriefcaseBusiness
-                        size={17}
-                        strokeWidth={1.2}
-                        className="shrink-0 text-[#c9a15a]"
-                      />
-                    </div>
-
-                    <p className="mt-5 max-w-2xl text-[12px] leading-7 text-[#68635d]">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* =====================================================
-            EDUCATION
-        ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="grid gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:gap-24">
-            <div>
-              <span className="font-mono text-[9px] tracking-[0.18em] text-[#c9a15a]">
-                02 — EDUCATION
-              </span>
-
-              <h2 className="mt-5 text-4xl font-semibold leading-[1] tracking-[-0.05em] text-[#e8e3db] md:text-5xl">
-                Building the
-                <br />
-                <span className="font-serif italic text-[#c9a15a]">
-                  foundation.
-                </span>
-              </h2>
-            </div>
-
-            <div className="border border-white/[0.08] bg-[#090908] p-7 md:p-10">
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <span className="font-mono text-[8px] tracking-[0.15em] text-[#c9a15a]">
-                    2024 — 2027
-                  </span>
-
-                  <h3 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-[#ddd8d0]">
-                    Bachelor of Computer Applications
-                  </h3>
-
-                  <p className="mt-3 font-mono text-[8px] tracking-[0.12em] text-[#514d47]">
-                    SHOOLINI UNIVERSITY
-                  </p>
-                </div>
-
-                <GraduationCap
-                  size={22}
-                  strokeWidth={1.2}
-                  className="shrink-0 text-[#c9a15a]"
-                />
+                <p className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-[#f4f1eb]">
+                  Education
+                </p>
               </div>
 
-              <p className="mt-7 max-w-2xl text-[12px] leading-7 text-[#68635d]">
-                Formal computer applications education combined with practical
-                project development, backend learning and continuous
-                experimentation with modern web technologies.
+              <p className="mt-5 text-sm leading-7 text-[#77726b]">
+                Bachelor of Computer Applications
+                <br />
+                Shoolini University
+                <br />
+                2024 — 2027
+              </p>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3">
+                <BriefcaseBusiness
+                  size={17}
+                  className="text-[#c9a15a]"
+                />
+
+                <p className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-[#f4f1eb]">
+                  Professional
+                </p>
+              </div>
+
+              <p className="mt-5 text-sm leading-7 text-[#77726b]">
+                Professional experience in business operations and management,
+                combined with hands-on full-stack development and product
+                building.
               </p>
             </div>
           </div>
@@ -382,44 +171,106 @@ export default function Resume() {
         {/* =====================================================
             TECHNICAL SKILLS
         ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="mb-14">
-            <span className="font-mono text-[9px] tracking-[0.18em] text-[#c9a15a]">
-              03 — TECHNICAL SKILLS
-            </span>
+        <section className="border-b border-white/[0.08] py-16">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#c9a15a]">
+                Technical Stack
+              </p>
 
-            <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1] tracking-[-0.05em] text-[#e8e3db] md:text-5xl">
-              Tools I use to
-              <br />
-              <span className="font-serif italic text-[#c9a15a]">
-                build products.
-              </span>
-            </h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-[#f4f1eb] sm:text-4xl">
+                Built across the stack.
+              </h2>
+            </div>
+
+            <p className="max-w-[400px] text-sm leading-6 text-[#66615a]">
+              Technologies and engineering practices I use to build,
+              connect, test, and deploy modern web products.
+            </p>
           </div>
 
-          <div className="grid border-l border-t border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
-            {technicalSkills.map((skill) => (
+          <div className="mt-12 grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Frontend",
+                items: [
+                  "React",
+                  "JavaScript",
+                  "Vite",
+                  "Tailwind CSS",
+                  "React Router",
+                  "Framer Motion",
+                ],
+              },
+              {
+                title: "Backend",
+                items: [
+                  "Node.js",
+                  "Express.js",
+                  "REST APIs",
+                  "MVC Architecture",
+                  "Middleware",
+                  "Async/Await",
+                ],
+              },
+              {
+                title: "Database",
+                items: [
+                  "MongoDB",
+                  "MongoDB Atlas",
+                  "Mongoose",
+                  "Schemas",
+                  "Validation",
+                  "Query Operations",
+                ],
+              },
+              {
+                title: "Authentication",
+                items: [
+                  "JWT",
+                  "bcrypt",
+                  "Protected Routes",
+                  "Authorization",
+                  "Role-Based Access",
+                  "OTP Verification",
+                ],
+              },
+              {
+                title: "API Engineering",
+                items: [
+                  "CRUD",
+                  "HTTP Status Codes",
+                  "Postman",
+                  "Input Validation",
+                  "Error Handling",
+                  "API Design",
+                ],
+              },
+              {
+                title: "Delivery",
+                items: [
+                  "Git",
+                  "GitHub",
+                  "Vercel",
+                  "Netlify",
+                  "Environment Variables",
+                  "Deployment",
+                ],
+              },
+            ].map((group) => (
               <div
-                key={skill.title}
-                className="border-b border-r border-white/[0.08] p-7 md:p-8"
+                key={group.title}
+                className="bg-[#070707] p-7 transition duration-300 hover:bg-[#0b0b0b]"
               >
-                <div className="flex items-center gap-3">
-                  <Code2
-                    size={15}
-                    strokeWidth={1.2}
-                    className="text-[#c9a15a]"
-                  />
-
-                  <h3 className="font-mono text-[9px] font-bold tracking-[0.14em] text-[#77726b]">
-                    {skill.title.toUpperCase()}
-                  </h3>
-                </div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#c9a15a]">
+                  {group.title}
+                </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {skill.items.map((item) => (
+                  {group.items.map((item) => (
                     <span
                       key={item}
-                      className="border border-white/[0.08] px-2.5 py-1.5 font-mono text-[7px] text-[#625d56]"
+                      className="border border-white/[0.08] px-3 py-2 font-mono text-[8px] uppercase tracking-[0.08em] text-[#77726b]"
                     >
                       {item}
                     </span>
@@ -431,58 +282,136 @@ export default function Resume() {
         </section>
 
         {/* =====================================================
-            SELECTED PROJECTS
+            ENGINEERING APPROACH
         ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <section className="border-b border-white/[0.08] py-16">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <span className="font-mono text-[9px] tracking-[0.18em] text-[#c9a15a]">
-                04 — SELECTED PROJECTS
-              </span>
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#c9a15a]">
+                Engineering Approach
+              </p>
 
-              <h2 className="mt-5 text-4xl font-semibold leading-[1] tracking-[-0.05em] text-[#e8e3db] md:text-5xl">
-                Where the skills
-                <br />
-                <span className="font-serif italic text-[#c9a15a]">
-                  become systems.
-                </span>
+              <h2 className="mt-4 max-w-[520px] text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#f4f1eb] sm:text-4xl">
+                I care about what happens behind the interface.
               </h2>
             </div>
 
-            <Link
-              to="/projects"
-              className="group inline-flex items-center gap-2 font-mono text-[8px] font-bold uppercase tracking-[0.13em] text-[#77726b] transition hover:text-[#c9a15a]"
-            >
-              View All Projects
+            <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2">
+              {[
+                {
+                  number: "01",
+                  title: "Structure",
+                  text: "Organized components, routes, controllers, middleware, models, and reusable logic.",
+                },
+                {
+                  number: "02",
+                  title: "Security",
+                  text: "Authentication, authorization, password hashing, validation, secrets, and protected APIs.",
+                },
+                {
+                  number: "03",
+                  title: "Reliability",
+                  text: "Error handling, API testing, edge cases, debugging, and predictable responses.",
+                },
+                {
+                  number: "04",
+                  title: "Delivery",
+                  text: "Git-based workflow, environment configuration, deployment, and iterative improvement.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="bg-[#070707] p-7"
+                >
+                  <span className="font-mono text-[9px] text-[#c9a15a]">
+                    {item.number}
+                  </span>
 
-              <ArrowUpRight
-                size={13}
-                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </Link>
+                  <h3 className="mt-5 text-lg font-semibold text-[#f4f1eb]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#6f6a63]">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            PROJECT EXPERIENCE
+        ====================================================== */}
+        <section className="border-b border-white/[0.08] py-16">
+          <div>
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#c9a15a]">
+              Selected Work
+            </p>
+
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-[#f4f1eb] sm:text-4xl">
+              Products I've been building.
+            </h2>
           </div>
 
-          <div className="border-t border-white/[0.08]">
-            {selectedProjects.map((project) => (
+          <div className="mt-10 divide-y divide-white/[0.08] border-y border-white/[0.08]">
+            {[
+              {
+                name: "WebQenzo",
+                type: "Full-Stack Business Platform",
+                description:
+                  "A business website and platform combining modern frontend experiences with backend systems, APIs, CRM workflows, lead management, and administrative operations.",
+              },
+              {
+                name: "Resume Builder",
+                type: "Full-Stack Product",
+                description:
+                  "A resume-building product focused on structured user input, document workflows, authentication, and a polished frontend experience.",
+              },
+              {
+                name: "Job Portal",
+                type: "Full-Stack Application",
+                description:
+                  "A job platform concept covering listings, users, application workflows, APIs, database operations, and role-based functionality.",
+              },
+              {
+                name: "E-commerce Platform",
+                type: "Commerce Application",
+                description:
+                  "A commerce-focused application exploring product management, customer flows, backend APIs, and order-oriented workflows.",
+              },
+              {
+                name: "HR Portal",
+                type: "In Development",
+                description:
+                  "An HR-focused business system currently being developed around employee and operational workflows.",
+              },
+              {
+                name: "Sales CRM",
+                type: "In Development",
+                description:
+                  "A CRM system focused on lead management, assignment, follow-ups, team workflows, and sales operations.",
+              },
+            ].map((project, index) => (
               <div
-                key={project.number}
-                className="grid gap-6 border-b border-white/[0.08] py-8 md:grid-cols-[70px_0.7fr_1.3fr] md:items-center"
+                key={project.name}
+                className="grid gap-4 py-7 md:grid-cols-[80px_1fr_1.4fr]"
               >
-                <span className="font-mono text-[9px] text-[#c9a15a]">
-                  {project.number}
+                <span className="font-mono text-[9px] text-[#4f4b45]">
+                  0{index + 1}
                 </span>
 
                 <div>
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[#dcd7cf]">
-                    {project.title}
+                  <h3 className="text-lg font-semibold text-[#f4f1eb]">
+                    {project.name}
                   </h3>
 
-                  <span className="mt-2 block font-mono text-[7px] tracking-[0.12em] text-[#4f4b46]">
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.12em] text-[#c9a15a]">
                     {project.type}
-                  </span>
+                  </p>
                 </div>
 
-                <p className="max-w-xl text-[11px] leading-6 text-[#68635d]">
+                <p className="max-w-[600px] text-sm leading-6 text-[#6f6a63]">
                   {project.description}
                 </p>
               </div>
@@ -491,98 +420,43 @@ export default function Resume() {
         </section>
 
         {/* =====================================================
-            CORE STACK
+            CTA
         ====================================================== */}
-        <section className="border-t border-white/[0.08] py-20 lg:py-28">
-          <div className="border border-[#c9a15a]/15 bg-[#0a0908] p-8 md:p-12 lg:p-14">
-            <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
-              <div>
-                <span className="font-mono text-[9px] tracking-[0.18em] text-[#c9a15a]">
-                  CORE STACK
-                </span>
+        <section className="py-16">
+          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div>
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#c9a15a]">
+                Next Step
+              </p>
 
-                <h2 className="mt-5 text-4xl font-semibold leading-[1] tracking-[-0.05em] text-[#e8e3db]">
-                  My current
-                  <br />
-                  <span className="font-serif italic text-[#c9a15a]">
-                    engineering stack.
-                  </span>
-                </h2>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "React",
-                  "Vite",
-                  "JavaScript",
-                  "Tailwind CSS",
-                  "Node.js",
-                  "Express.js",
-                  "MongoDB",
-                  "Mongoose",
-                  "JWT",
-                  "bcrypt",
-                  "REST API",
-                  "Postman",
-                  "Git",
-                  "GitHub",
-                  "Vercel",
-                ].map((technology) => (
-                  <span
-                    key={technology}
-                    className="border border-white/[0.09] px-4 py-2.5 font-mono text-[8px] text-[#706b64] transition hover:border-[#c9a15a]/35 hover:text-[#c9a15a]"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
+              <h2 className="mt-4 max-w-[650px] text-3xl font-semibold tracking-[-0.03em] text-[#f4f1eb] sm:text-4xl">
+                Interested in building something useful?
+              </h2>
             </div>
-          </div>
-        </section>
 
-        {/* =====================================================
-            DOWNLOAD / CONTACT CTA
-        ====================================================== */}
-        <section className="border-t border-white/[0.08] py-28 text-center lg:py-40">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#c9a15a]">
-            05 — LET'S CONNECT
-          </span>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-3 border border-[#c9a15a]/40 px-7 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
+              >
+                Start a Conversation
 
-          <h2 className="mx-auto mt-6 max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-[#e8e3db] md:text-7xl">
-            Looking for
-            <br />
-            <span className="font-serif italic text-[#c9a15a]">
-              the next challenge.
-            </span>
-          </h2>
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </Link>
 
-          <p className="mx-auto mt-7 max-w-xl text-[12px] leading-7 text-[#68635d]">
-            Interested in backend development, full-stack products and
-            opportunities where I can continue growing through real
-            engineering work.
-          </p>
+              <a
+                href="/Asif-Resume.pdf"
+                download="Asif-Resume.pdf"
+                className="inline-flex items-center gap-3 border border-white/[0.1] px-7 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#6c6760] transition hover:border-white/[0.25] hover:text-white"
+              >
+                <ArrowDownToLine size={15} />
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 border border-[#c9a15a]/40 px-7 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
-            >
-              Start a Conversation
-
-              <ArrowUpRight
-                size={16}
-                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </Link>
-
-            <a
-              href="#top"
-              className="inline-flex items-center gap-3 border border-white/[0.1] px-7 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#6c6760] transition hover:border-white/[0.25] hover:text-white"
-            >
-              <ArrowDownToLine size={15} />
-
-              Resume PDF
-            </a>
+                Resume PDF
+              </a>
+            </div>
           </div>
         </section>
       </div>

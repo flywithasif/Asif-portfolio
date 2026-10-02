@@ -151,7 +151,7 @@ export default function GitHub() {
                 </p>
 
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/flywithasif"
                   target="_blank"
                   rel="noreferrer"
                   className="group mt-6 inline-flex items-center gap-2 border border-[#c9a15a]/35 px-5 py-3 font-mono text-[8px] font-bold uppercase tracking-[0.13em] text-[#c9a15a] transition hover:bg-[#c9a15a] hover:text-black"

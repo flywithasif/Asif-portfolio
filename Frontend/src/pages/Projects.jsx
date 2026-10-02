@@ -39,7 +39,7 @@ const projects = [
     icon: Building2,
     featured: true,
     live: "https://webqenzo.com/",
-    github: "https://github.com/",
+    github: "https://github.com/flywithasif/webqenzo-frontend",
   },
   {
     number: "02",
@@ -63,8 +63,8 @@ const projects = [
     ],
     icon: Sparkles,
     featured: true,
-    live: "https://resume-builder-frontend-neon.vercel.app/",
-    github: "https://github.com/",
+    live: "https://resumelyi.vercel.app/",
+    github: "https://github.com/flywithasif/resume-builder-frontend",
   },
   {
     number: "03",

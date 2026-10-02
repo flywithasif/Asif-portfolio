@@ -340,7 +340,7 @@ export default function About() {
               </span>
 
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#ddd8d0]">
-                Center Manager
+                Operations Management
               </h3>
 
               <p className="mt-3 font-mono text-[9px] tracking-[0.1em] text-[#68635d]">

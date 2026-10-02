@@ -18,16 +18,16 @@ const contactChannels = [
   {
     icon: Mail,
     label: "EMAIL",
-    value: "your@email.com",
-    href: "mailto:your@email.com",
+    value: "flywithasif@gmail.com",
+    href: "mailto:flywithasif@gmail.com",
     description:
       "For opportunities, projects and professional conversations.",
   },
   {
     icon: GitBranch,
     label: "GITHUB",
-    value: "github.com/yourusername",
-    href: "https://github.com/",
+    value: "github.com/flywithasif",
+    href: "https://github.com/flywithasif",
     description:
       "Explore my repositories, projects and development work.",
   },
@@ -278,7 +278,7 @@ export default function Contact() {
                     autoComplete="tel"
                     maxLength={10}
                     pattern="[6-9][0-9]{9}"
-                    placeholder="98765 43210"
+                    placeholder="98765 XXXXX"
                     className="mt-3 w-full border-b border-white/[0.1] bg-transparent px-0 py-3 text-sm text-[#dcd7cf] outline-none placeholder:text-[#403c37] transition focus:border-[#c9a15a]/50"
                   />
                 </div>
@@ -538,7 +538,7 @@ export default function Contact() {
           </p>
 
           <a
-            href="mailto:your@email.com"
+            href="mailto:flywithasif@gmail.com"
             className="group mt-10 inline-flex items-center gap-3 border border-[#c9a15a]/40 px-7 py-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-[#c9a15a] transition duration-300 hover:bg-[#c9a15a] hover:text-black"
           >
             Email Me
