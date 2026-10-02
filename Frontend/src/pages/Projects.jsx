@@ -4,7 +4,7 @@ import {
   Building2,
   Code2,
   ExternalLink,
-  Github,
+  GitBranch,
   ShoppingBag,
   Sparkles,
   UsersRound,
@@ -337,7 +337,7 @@ export default function Projects() {
                             >
                               GitHub
 
-                              <Github size={13} />
+                              <GitBranch size={13} />
                             </a>
                           )}
 
