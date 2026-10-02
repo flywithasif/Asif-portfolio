@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -14,6 +15,26 @@ import GitHub from "./pages/GitHub";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 
+/* ---------------------------------------------
+   Scroll to top whenever the route changes
+--------------------------------------------- */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
+  return null;
+}
+
+/* ---------------------------------------------
+   Page transition animation
+--------------------------------------------- */
 function PageTransition({ children }) {
   return (
     <motion.div
@@ -35,6 +56,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#070707] text-[#f4f1eb]">
+      <ScrollToTop />
+
       <Navbar />
 
       <AnimatePresence mode="wait">
